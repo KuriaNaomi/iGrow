@@ -1,5 +1,5 @@
 '''
-This code was initially written and run in a kaggle notebook so it would need some reorganising to use it
+This code was initially written and run in a kaggle notebook so it would need some reorganising to use directly
 '''
 
 ## Fine-Tuning the FinBERT Sentiment Analysis model
@@ -65,12 +65,12 @@ model = BertForSequenceClassification.from_pretrained('ProsusAI/finbert')
 training_args = TrainingArguments(
     output_dir='./results',          
     num_train_epochs=3,              
-    per_device_train_batch_size=8,  
-    per_device_eval_batch_size=8,   
-    warmup_steps=500,                
-    weight_decay=0.01,               
+    per_device_train_batch_size=10,  
+    per_device_eval_batch_size=10,   
+    warmup_steps=1000,                
+    weight_decay=0.01,         
     logging_dir='./logs', 
-    logging_steps=10,  # Reduce logging frequency to speed up training
+    logging_steps=60,  # Reduce logging frequency to speed up training
 )
 
 # Initialize Trainer
